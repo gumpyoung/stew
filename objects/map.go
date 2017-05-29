@@ -6,10 +6,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/stretchr/signature"
 	"io/ioutil"
 	"net/url"
 	"strings"
+
+	"github.com/stretchr/signature"
 )
 
 var (
@@ -165,10 +166,55 @@ func (d Map) GetMap(keypath string) Map {
 	return d.Get(keypath).(Map)
 }
 
+// GetRawMap gets another Map from this one, or panics if the object is missing or not a Map.
+func (d Map) GetRawMap(keypath string) (map[string]interface{}, error) {
+	m := map[string]interface{}{}
+	tmp := d.GetOrDefault(keypath, nil)
+	if tmp == nil {
+		return m, errors.New("Key not found: " + keypath)
+	}
+
+	m, ok := tmp.(map[string]interface{})
+	if !ok {
+		return m, errors.New("Data is not map: " + keypath)
+	}
+	return m, nil
+}
+
 // GetString gets a string value from the map at the given keypath, or panics if one
 // is not available, or is of the wrong type.
 func (d Map) GetString(keypath string) string {
 	return d.Get(keypath).(string)
+}
+
+// GetBoolean gets a boolean value from the map at the given keypath, or panics if one
+// is not available, or is of the wrong type.
+func (d Map) GetBoolean(keypath string) bool {
+	return d.Get(keypath).(bool)
+}
+
+// GetFloat32 gets a float32 value from the map at the given keypath, or panics if one
+// is not available, or is of the wrong type.
+func (d Map) GetFloat32(keypath string) float32 {
+	return d.Get(keypath).(float32)
+}
+
+// GetFloat64 gets a float64 value from the map at the given keypath, or panics if one
+// is not available, or is of the wrong type.
+func (d Map) GetFloat64(keypath string) float64 {
+	return d.Get(keypath).(float64)
+}
+
+// GetInt gets a int value from the map at the given keypath, or panics if one
+// is not available, or is of the wrong type.
+func (d Map) GetInt(keypath string) int {
+	return d.Get(keypath).(int)
+}
+
+// GetData gets a byte array value from the map at the given keypath, or panics if one
+// is not available, or is of the wrong type.
+func (d Map) GetData(keypath string) []byte {
+	return d.Get(keypath).([]byte)
 }
 
 // GetWithDefault gets the value at the specified keypath, or returns the defaultValue if
