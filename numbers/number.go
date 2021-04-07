@@ -1,8 +1,9 @@
 package numbers
 
 import (
-	"github.com/stretchr/stew/strings"
 	"strconv"
+
+	"github.com/gumpyoung/stew/strings"
 )
 
 type Number float64

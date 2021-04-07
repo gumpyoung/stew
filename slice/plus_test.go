@@ -1,8 +1,9 @@
 package slice
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/gumpyoung/testify/assert"
 )
 
 func TestPlusStrings(t *testing.T) {

@@ -3,9 +3,10 @@ package strings
 import (
 	"bytes"
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
+
+	"github.com/gumpyoung/testify/assert"
 )
 
 func TestStrings_SplitBy(t *testing.T) {

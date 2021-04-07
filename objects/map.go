@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/stretchr/signature"
+	"github.com/gumpyoung/signature"
 )
 
 var (

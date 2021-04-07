@@ -1,9 +1,10 @@
 package objects
 
 import (
-	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
+
+	"github.com/gumpyoung/testify/assert"
 )
 
 var signatureTestKey = "e1zJJGjCJfLAR1b4dDqg0PY33731D8gM"

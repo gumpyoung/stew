@@ -1,8 +1,9 @@
 package numbers
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/gumpyoung/testify/assert"
 )
 
 func TestFromInterface(t *testing.T) {

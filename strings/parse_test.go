@@ -1,8 +1,9 @@
 package strings
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/gumpyoung/testify/assert"
 )
 
 func TestParse(t *testing.T) {
